@@ -2,14 +2,23 @@ import React, { useContext, useState } from 'react';
 import { Modal, StyleSheet, Text, TouchableOpacity, View, TextInput, TouchableWithoutFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import UserNameContext from '../context/userName';
+import MoneyInput from './MoneyInput';
 
 const ChangeName = ({ isVisible, onClose }) => {
   const [newName, setNewName] = useState('');
+  const [moneyValue, setMoneyValue] = useState('');
 
-  const { setUserName } = useContext(UserNameContext);
+  const { setUserName, setBalance } = useContext(UserNameContext);
 
-  const handleChangeName = () => {
-    setUserName(newName);
+  const handleChangeName = async () => {
+    if (newName.trim() !== '') {
+      setUserName(newName);
+    }
+
+    if (moneyValue.trim() !== '') {
+      setBalance(moneyValue);
+    }
+
     onClose();
   };
 
@@ -20,16 +29,21 @@ const ChangeName = ({ isVisible, onClose }) => {
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
             <Icon name="times" size={20} color="white" />
           </TouchableOpacity>
-          <View style={styles.modalContainer} onStartShouldSetResponder={() => true} >
+          <View style={styles.modalContainer} onStartShouldSetResponder={() => true}>
             <Text style={styles.modalTitle}>Mudar Nome da Conta:</Text>
             <View style={styles.formContainer}>
-              <TextInput
-                style={styles.input}
-                placeholder="Novo nome"
-                placeholderTextColor={'#fff'}
-                onChangeText={text => setNewName(text)}
-                value={newName}
-              />
+              <View style={styles.inputContainer}>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Novo nome"
+                  placeholderTextColor={'#fff'}
+                  onChangeText={text => setNewName(text)}
+                  value={newName}
+                />
+                <MoneyInput
+                  onValueChange={text => setMoneyValue(text)}
+                />
+              </View>
               <TouchableOpacity
                 style={styles.button}
                 onPress={handleChangeName}
@@ -57,6 +71,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     alignItems: 'center',
+    gap: 30,
   },
   modalTitle: {
     fontSize: 20,
@@ -74,7 +89,15 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20,
+    gap: 60,
+  },
+  inputContainer: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 30,
   },
   input: {
     backgroundColor: '#222',
@@ -87,7 +110,7 @@ const styles = StyleSheet.create({
   button: {
     width: '100%',
     height: 50,
-    backgroundColor: '#8f23d6',
+    backgroundColor: '#820ad1',
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',

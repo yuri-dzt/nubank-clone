@@ -4,12 +4,13 @@
     "slug": "nubank-clone",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/nubank-logo-with-bg.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/nubank-logo-with-bg.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "iconSize": 20,
+      "backgroundColor": "#820ad1"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,7 +21,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#820ad1"
       }
     },
     "web": {

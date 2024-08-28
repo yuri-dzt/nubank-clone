@@ -1,9 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
-const ActionItem = ({ children, text }) => {
+const ActionItem = ({ children, text, onPress }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.content}>
+      <TouchableOpacity style={styles.content} onPress={onPress}>
         {children}
       </TouchableOpacity>
       <Text style={styles.title}>

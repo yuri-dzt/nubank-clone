@@ -11,7 +11,7 @@ const ActionList = () => {
             <FontAwesomeIcon icon={faPix} color="#fff" size={30} />    
         </ActionItem>
         <ActionItem text={'Pagar'}>
-            <FontAwesomeIcon icon={faBarcode} color="#fff" size={25} />   
+            <FontAwesomeIcon icon={faBarcode} color="#fff" size={25} />
         </ActionItem>
         <ActionItem text={'Pegar emprestado'}>
             <FontAwesomeIcon icon={faHandHoldingDollar} color="#fff" size={30} />

@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     },
     additionalLimit: {
         fontSize: 15,
-        color: '#8f23d6',
+        color: '#820ad1',
         fontWeight:  'bold',
     },
     otherValue: {
